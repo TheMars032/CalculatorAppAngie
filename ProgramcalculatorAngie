@@ -1,0 +1,113 @@
+using System.IO;
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        /* MENÚ DE OPCIONES
+        1. Suma
+        2. Resta
+        3. Multiplicación
+        4. División
+        5. Potencia
+        6. Raiz cuadrada
+        */
+
+        int opcion = 0;
+        double num1 = 0;
+        double num2 = 0;
+        double resultado = 0;
+
+        Console.Clear();
+        Console.WriteLine("Menú de operaciones, elija la operación que desee");
+        Console.WriteLine("1 - Suma");
+        Console.WriteLine("2 - Resta");
+        Console.WriteLine("3 - Multiplicación");
+        Console.WriteLine("4 - División");
+        Console.WriteLine("5 - Potencia");
+        Console.WriteLine("6 - Raíz Cuadrada");
+        Console.WriteLine("----------------------------------------------------");
+
+        opcion = int.Parse(Console.ReadLine());
+
+        if (opcion == 5 || opcion == 6)
+        {
+            Console.WriteLine("Ingrese el valor numérico");
+            num1 = double.Parse(Console.ReadLine());
+        }
+        else
+        {
+            Console.WriteLine("Ingrese el primer valor numérico");
+            num1 = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese el segundo valor numérico");
+            num2 = double.Parse(Console.ReadLine());
+        }
+
+        resultado = RealizarOperacionesPersonalizadas(num1, num2, opcion);
+
+        ImprimirOperacion(resultado, opcion);
+    }
+
+    public static double RealizarOperacionesPersonalizadas(double num1, double num2, int opcion)
+    {
+        double resultado = 0;
+
+        switch (opcion)
+        {
+            case 1:
+                // suma
+                resultado = num1 + num2;
+                break;
+            case 2:
+                // resta
+                resultado = num1 - num2;
+                break;
+            case 3:
+                // multiplicación
+                resultado = num1 * num2;
+                break;
+            case 4:
+                // división
+                resultado = num1 / num2;
+                break;
+            case 5:
+                //potencia
+                resultado = Math.Pow(num1,num2);
+                break;
+            case 6:
+                //raíz cuadrada
+                resultado = Math.Sqrt(num1);
+                break;
+        }
+
+        return resultado;
+    }
+
+    static void ImprimirOperacion(double resultado, int opcion)
+    {
+        switch (opcion)
+        {
+            case 1:
+                Console.WriteLine($"El resultado de la suma es {resultado}");
+                break;
+            case 2:
+                Console.WriteLine($"El resultado de la resta es {resultado}");
+                break;
+            case 3:
+                Console.WriteLine($"El resultado de la multiplicación es {resultado}");
+                break;
+            case 4:
+                Console.WriteLine($"El resultado de la división es {resultado}");
+                break;
+            case 5:
+                Console.WriteLine($"El resultado de la potencia es {resultado}");
+                break;
+            case 6:
+                Console.WriteLine($"El resultado de la raíz cuadrada es {resultado}");
+                break;
+        }
+    }
+}
+
+//Profe no tengo visual en mi pc así que lo hice en un compilador online
